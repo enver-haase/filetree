@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.infraleap</groupId>
-	<artifactId>animate-css-root</artifactId>
+	<artifactId>filetree-root</artifactId>
 	<packaging>pom</packaging>
-	<version>2.0.0</version>
+	<version>1.0.0</version>
 
-	<name>Animate-CSS Root</name>
+	<name>FileTree Root</name>
 
-	<inceptionYear>2020</inceptionYear>
+	<inceptionYear>2022</inceptionYear>
 	<organization>
 		<name>Enver Haase</name>
 		<url>http://www.infraleap.com</url>
@@ -30,8 +30,8 @@
 	</distributionManagement>
 
 	<modules>
-		<module>animate-css</module>
-		<module>animate-css-demo</module>
+		<module>filetree</module>
+		<module>filetree-demo</module>
 	</modules>
 
 	<repositories>

@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.infraleap</groupId>
-    <artifactId>animate-css-demo</artifactId>
+    <artifactId>filetree-demo</artifactId>
     <version>2.0.0</version>
 
-    <name>Animate-CSS Demo</name>
+    <name>FileTree Demo</name>
 
-    <inceptionYear>2020</inceptionYear>
+    <inceptionYear>2022</inceptionYear>
     <organization>
         <name>Enver Haase</name>
         <url>http://www.infraleap.com</url>
@@ -30,8 +30,8 @@
     <dependencies>
         <dependency>
             <groupId>com.infraleap</groupId>
-            <artifactId>animate-css</artifactId>
-            <version>2.0.2</version>
+            <artifactId>filetree</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
