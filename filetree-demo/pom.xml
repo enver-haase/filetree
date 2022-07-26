@@ -5,7 +5,7 @@
 
     <groupId>org.vaadin.addons</groupId>
     <artifactId>filetree-demo</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <name>FileTree Demo</name>
 
@@ -30,7 +30,7 @@
         <dependency>
             <groupId>org.vaadin.addons</groupId>
             <artifactId>filetree</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </dependency>
     </dependencies>
 
