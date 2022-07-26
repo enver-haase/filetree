@@ -5,7 +5,7 @@
 
     <groupId>com.infraleap</groupId>
     <artifactId>filetree-demo</artifactId>
-    <version>2.0.0</version>
+    <version>1.0.0</version>
 
     <name>FileTree Demo</name>
 
@@ -18,9 +18,8 @@
     <packaging>war</packaging>
 
     <properties>
-        <failOnMissingWebXml>false</failOnMissingWebXml>
-        <vaadin.version>14.4.0</vaadin.version>
-        <flow.version>2.4.0</flow.version>
+        <vaadin.version>14.8.7</vaadin.version>
+        <flow.version>2.7.14</flow.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -48,6 +47,15 @@
         </resources>
 
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-maven-plugin</artifactId>
