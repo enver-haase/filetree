@@ -29,8 +29,8 @@ public class FileTree extends VerticalLayout {
         void handle(File file);
     }
 
-    public interface FileNameFilter {
-        boolean accept(String s);
+    public interface FileFilter {
+        boolean accept(File file);
     }
 
     private final Tree<FileWrapper> filesTree;
@@ -168,8 +168,8 @@ public class FileTree extends VerticalLayout {
     }
 
 
-    public void setFileNameFilter(FileNameFilter fileNameFilter){
-        ((TreeDataProvider<FileWrapper>) this.filesTree.getDataProvider()).setFilter( fileNameFilter == null? null : fileWrapper -> fileNameFilter.accept(fileWrapper.getName()));
+    public void setFileNameFilter(FileFilter fileFilter){
+        ((TreeDataProvider<FileWrapper>) this.filesTree.getDataProvider()).setFilter( fileFilter == null? null : fileWrapper -> fileFilter.accept(fileWrapper.wrappedFile));
     }
 
     private List<FileWrapper> getFiles(FileWrapper parent) {
