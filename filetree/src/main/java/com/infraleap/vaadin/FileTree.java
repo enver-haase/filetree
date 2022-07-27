@@ -10,6 +10,7 @@ import com.vaadin.flow.component.treegrid.TreeGrid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.data.provider.SortDirection;
+import com.vaadin.flow.data.provider.hierarchy.TreeDataProvider;
 import com.vaadin.flow.function.ValueProvider;
 
 import java.io.File;
@@ -27,6 +28,12 @@ public class FileTree extends VerticalLayout {
     public interface SelectedHandler {
         void handle(File file);
     }
+
+    public interface FileNameFilter {
+        boolean accept(String s);
+    }
+
+    private final Tree<FileWrapper> filesTree;
 
     private static class FileWrapper implements Comparable<FileWrapper> {
         private File wrappedFile;
@@ -68,10 +75,9 @@ public class FileTree extends VerticalLayout {
 
         public FileWrapper[] listFiles() {
             File[] listing = wrappedFile.listFiles();
-            if (listing == null){
+            if (listing == null) {
                 return null;
-            }
-            else {
+            } else {
                 FileWrapper[] retVal = new FileWrapper[listing.length];
                 for (int i = 0; i < listing.length; i++) {
                     retVal[i] = new FileWrapper(listing[i]);
@@ -105,7 +111,7 @@ public class FileTree extends VerticalLayout {
     public FileTree(String rootDir, boolean canRename, SelectedHandler selectedHandler) {
         final FileWrapper root = new FileWrapper(new File(rootDir));
 
-        Tree<FileWrapper> filesTree = new Tree<>(FileWrapper::getName);
+        this.filesTree = new Tree<>(FileWrapper::getName);
 
         Binder<FileWrapper> binder = new Binder<>();
         Editor<FileWrapper> editor = filesTree.getEditor();
@@ -159,8 +165,12 @@ public class FileTree extends VerticalLayout {
                             setSizeFull();
                         }
                 );
+    }
 
-}
+
+    public void setFileNameFilter(FileNameFilter fileNameFilter){
+        ((TreeDataProvider<FileWrapper>) this.filesTree.getDataProvider()).setFilter( fileNameFilter == null? null : fileWrapper -> fileNameFilter.accept(fileWrapper.getName()));
+    }
 
     private List<FileWrapper> getFiles(FileWrapper parent) {
         if (parent.isDirectory()) {

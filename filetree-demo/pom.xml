@@ -5,7 +5,7 @@
 
     <groupId>org.vaadin.addons.infraleap</groupId>
     <artifactId>filetree-demo</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <name>FileTree Demo</name>
 
@@ -30,7 +30,7 @@
         <dependency>
             <groupId>org.vaadin.addons.infraleap</groupId>
             <artifactId>filetree</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.3</version>
         </dependency>
     </dependencies>
 
